@@ -1,12 +1,12 @@
-var MyTestConnector = [
+var myTestConnector = [
     {
-        "name": "MyTestConnector",
+        "name": "myTestConnector",
         "title": "QA Test",
         "description": "A collection of operations for the QA Test",
         "version": "1.0",
         "tags": [
             "service",
-            "MyTestConnector"
+            "myTestConnector"
         ],
         "icon": {
             "type": "streamline",
@@ -207,4 +207,4 @@ var MyTestConnector = [
     }
 ]
 
-exports.MyTestConnector = MyTestConnector;
+exports.myTestConnector = myTestConnector;
