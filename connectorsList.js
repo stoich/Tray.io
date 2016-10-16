@@ -1,4 +1,4 @@
-var myTestConnector = [
+var myTestConnector =
     {
         "name": "myTestConnector",
         "title": "QA Test",
@@ -205,6 +205,5 @@ var myTestConnector = [
             }
         ]
     }
-]
 
 exports.myTestConnector = myTestConnector;
