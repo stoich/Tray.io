@@ -60,6 +60,7 @@ There's plenty of plugins to solve this. The easiest solution I found is to use 
 It's identical to the vanilla jasmine runner but doesn't support Jasmine versions higher than 1.3 (we use 2.5 by default). So we need to remove 'beforeAll' clause and the 'pend' functions from our spec file since those are not supported in 1.3. 
 
 From there it's simple. Step by step (on Windows): 
+
 1. Add jasmine-node as a dependency in the node test project
 
 2. Create new Jenkins freestyle project
@@ -68,7 +69,7 @@ From there it's simple. Step by step (on Windows):
 
 5. In Jenkins add a new build step 'Execute Windows batch command': "npm install"
 
-6. Add a subsequent build step 'Execute Windows batch command': "node "workspace\node_modules\jasmine-node\bin\jasmine-node" --verbose --junitreport spec" - where workspace is your jenkins project workspace folder
+6. Add a subsequent build step 'Execute Windows batch command': 'node "workspace\node_modules\jasmine-node\bin\jasmine-node" --verbose --junitreport spec' - where workspace is your jenkins project workspace folder
 
 7. Add a new Post-build action "Publish JUnit test result report" with 'Test report XMLs' configured as "**/reports/*.xml" (assuming a default configuration)
 
