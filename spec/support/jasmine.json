@@ -6,6 +6,9 @@
   "helpers": [
     "helpers/**/*.js"
   ],
+  "junit": {
+    "path": "build/.test"
+  },
   "stopSpecOnExpectationFailure": false,
   "random": false
 }

@@ -2,13 +2,11 @@ var Connector = require('../../lib/connector');
 var connectorsList = require('../../connectorsList');
 
 describe(`In MY-TEST-CONNECTOR connector`, function () {
+
     var connector;
     var serviceEndPoint = 'edy585mx12.execute-api.eu-west-1.amazonaws.com';
     var requestID = "123-def";
-
-    beforeAll(function () {
-        connector = new Connector(serviceEndPoint, connectorsList.myTestConnector, requestID);
-    });
+    connector = new Connector(serviceEndPoint, connectorsList.myTestConnector, requestID);
 
     describe("CONTAINS message", function () {
         var msgName = 'contains';
@@ -23,9 +21,9 @@ describe(`In MY-TEST-CONNECTOR connector`, function () {
                 expect(res).toEqual(expectedOutput);
                 done();
             });
-        }).pend('Failing - doesn\'t return expected result.');
+        });
 
-        it("returns false for non-matching pattern  ", function (done) {
+       it("returns false for non-matching pattern  ", function (done) {
             var negativeInput = {value: "Hello, Finn!", contains: "Adam Driver"};
             var expectedOutput = connector.buildValidOutput({result: false});
 
@@ -91,7 +89,7 @@ describe(`In MY-TEST-CONNECTOR connector`, function () {
             var expectedOutput = connector.buildValidOutput({result: true});
 
             connector.sendMessage(msgName, positiveInput).then(function (res) {
-                console.log(res);
+                //console.log(res);
                 expect(res).toEqual(expectedOutput);
                 done();
             });
@@ -170,7 +168,7 @@ describe(`In MY-TEST-CONNECTOR connector`, function () {
                 expect(res).toEqual(expectedOutput);
                 done();
             });
-        }).pend('Failing - returns API error.');
+        })
 
         //Disabled because it's failing - results in API error
         xit('should return false for "slashstars.com "', function (done) {
@@ -182,7 +180,7 @@ describe(`In MY-TEST-CONNECTOR connector`, function () {
                 expect(res).toEqual(expectedOutput);
                 done();
             });
-        }).pend('Failing - returns API error.');
+        })
 
         it("should return error when missing parameters", function (done) {
             var expectedOutput = connector.buildMissingParametersOutput(msgName);
@@ -233,6 +231,6 @@ describe(`In MY-TEST-CONNECTOR connector`, function () {
         });
 
     });
-});
 
+});
 
